@@ -29,10 +29,11 @@ h1 {
 
 .liste-color {
     button {
-        width: 50px;
-        height: 50px;
+        width: 30px;
+        height: 30px;
         border-radius: 50%;
         border: none;
+        margin-right: 5px ;
     }
 
     p {
@@ -40,7 +41,7 @@ h1 {
         font-weight: 500;
         text-transform: uppercase;
         line-height: 1.5;
-        letter-spacing: .07em;
+        letter-spacing: .05em;
     }
 }
 
