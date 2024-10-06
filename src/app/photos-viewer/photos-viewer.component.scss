@@ -1,0 +1,29 @@
+.d-flex{
+    width: 50vw;
+}
+
+.liste-petite-image{
+    img{
+        width: 60px;
+        height: 100px;
+        object-fit: cover;
+        // border-bottom: 0.5px solid gray;
+        margin: 1px;
+    }
+}
+
+.liste-grande-image{
+    height: 80vh;
+    overflow: auto;
+    -ms-overflow-style: none;  /* IE and Edge */
+    scrollbar-width: none;  /* Firefox */
+    img{
+        width: 45vw;
+        height: 80vh;
+        object-fit: cover;
+    }
+}
+
+.liste-grande-image::-webkit-scrollbar {
+    display: none;
+  }

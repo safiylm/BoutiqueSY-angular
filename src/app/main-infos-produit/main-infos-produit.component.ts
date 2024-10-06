@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class MainInfosProduitComponent {
 
+  title: string ="Puffy Charlotte Ring";
+  price: number = 68;
+  colors : string[]= ['Gold Vermeil, "Sterling Silver']
+  size : number[]=[4,5,6,7,8,9,10,11,12]
+
+
 }
