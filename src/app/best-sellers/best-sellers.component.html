@@ -1,1 +1,11 @@
-<p>best-sellers works!</p>
+<h2>BEST Steller</h2>
+<div class="liste-best-steller d-flex align-items-center justify-content-center">
+    <div  *ngFor="let prod of products">
+    <div class="un-produit">
+        <img [alt]="prod.title" [src]="prod.image" />
+        <p id="nomprod"> {{ prod.title }} </p>
+        <p id="prixprod">{{prod.prix}} EUR</p>
+        <button id="btn-color"></button>
+        <p id="color">{{prod.color}}</p>
+    </div>
+</div>
