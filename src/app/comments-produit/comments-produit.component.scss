@@ -1,0 +1,25 @@
+h2{
+    margin: 70px ;
+    text-align: center;
+    font-weight: 700;
+    text-transform: uppercase;
+    font-family: BrandonGrotesque, sans-serif;
+}
+
+.liste-comments{
+    font-size: .85rem;
+    font-family: BrandonGrotesque, sans-serif;
+
+    .onecomment{
+        border-top: 0.5px solid #aaaaaa;
+        padding:15px ;
+
+        .comment{
+            width: 60%;
+
+            svg{
+                margin-right: 4px;
+            }
+        }
+    }
+}
