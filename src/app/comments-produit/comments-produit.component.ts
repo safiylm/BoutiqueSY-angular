@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-comments-produit',
@@ -13,8 +14,29 @@ export class CommentsProduitComponent {
     { 'nom': 'Sach G.', "stars": 3, "comment": "Perfect little station bracelet", "comment2": "Great gift for my niece who loved it.", "date": "03/04/2024" },
     { 'nom': 'Raluca B.', "stars": 5, "comment": "Highly recommended", "comment2": "This was a present for my wife and she loved it. Very high quality, quick delivery and great prices. Will buy again.", "date": "29/02/2024" }
   ]
-  moy = 0
 
+  createReviewForm = new FormGroup({
+    nom: new FormControl("", [Validators.required]),
+    email: new FormControl("", [Validators.required, Validators.email]),
+    stars: new FormControl("", Validators.required),
+    title: new FormControl("", Validators.required),
+    review: new FormControl("", Validators.required),
+  });
+  
+  moy = 0
+  isDisplayFormAddReview : boolean = false;
+
+  openFormAddReview(){
+    this.isDisplayFormAddReview =true;
+  }
+
+  closeFormAddReview(){
+    this.isDisplayFormAddReview = false;
+  }
+  
+  createReview(){
+
+  }
   ngOnInit(){
     this.listeComments.forEach(element => {
       this.moy = this.moy + element.stars 

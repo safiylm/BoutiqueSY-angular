@@ -2,6 +2,42 @@
     <br /> {{moy}} of 5 Stars
 </h2>
 
+<button id="btnAddReview" (click)="openFormAddReview()">
+    Write A Review
+</button>
+
+<div class="addReviewContainer" *ngIf="isDisplayFormAddReview">
+
+    <form [formGroup]="createReviewForm" (ngSubmit)="createReview()">
+
+        <label>Saisissez votre nom : <br/>
+            <input class="form-control" formControlName="nom" />
+        </label>
+        <label>Saisissez votre email :<br/>
+            <input class="form-control" formControlName="email" />
+        </label>
+        <label>Saisissez votre title de commentaire :<br/>
+            <input class="form-control" formControlName="title" />
+        </label>
+        <label>Saisissez votre note en étoiles :<br/>
+            <select formControlName="stars" class="form-select" >
+                <option>0</option>
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+            </select>
+        </label>
+        <label>Saisissez votre corps de commentaire :<br/>
+            <textarea class="form-control" formControlName="review"></textarea>
+        </label>
+
+        <button class="btn btn-dark" type="submit">Create Review</button>
+        <button class="btn btn-light" type="button" (click)="closeFormAddReview()">Annuler</button>
+    </form>
+</div>
+
 <div class="liste-comments">
     <div class="onecomment d-flex align-items-center justify-content-around" *ngFor="let comment of listeComments">
         <p>{{comment.nom}}</p>
