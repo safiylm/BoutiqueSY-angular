@@ -5,6 +5,7 @@ h2{
     font-weight: 700;
     text-transform: uppercase;
 }
+
 .liste-best-steller {
     margin: 50px;
     font-size: .85rem;
@@ -20,6 +21,23 @@ h2{
         height: 25vw;
         object-fit: cover;
     }
+
+    #imghover{
+        display: none;
+    }
+
+    .un-produit:hover {
+        transition-duration:2000ms;
+
+        #imghover{
+            display: block;
+        }
+
+        #img {
+            display: none;
+        }
+    }
+
 
     #nomprod {
         font-weight: 600;
