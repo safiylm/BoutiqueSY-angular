@@ -1,17 +1,14 @@
-<div  class="d-flex justify-content-center aligns-item-center">
+<div class="d-flex justify-content-center aligns-item-center">
     <div class="liste-petite-image">
-        <img (click)="displayImage(0)" [src]="liste_image[0]"  alt="Puffy Charlotte Ring 1" />
-        <img (click)="displayImage(1)" [src]="liste_image[1]"  alt="Puffy Charlotte Ring 2" />
-        <img (click)="displayImage(2)" [src]="liste_image[2]"  alt="Puffy Charlotte Ring 3" />
-        <img (click)="displayImage(3)" [src]="liste_image[3]"  alt="Puffy Charlotte Ring 4" />
-        <img (click)="displayImage(4)" [src]="liste_image[4]"  alt="Puffy Charlotte Ring 5" />
+        <div *ngFor="let img of produit.image; index as i">
+            <img (click)="displayImage(i)" [src]="produit.image[i]" alt="Puffy Charlotte Ring {{i}}" />
+        </div>
     </div>
+
     <div class="liste-grande-image">
-        <img [src]="liste_image[0]" alt="Puffy Charlotte Ring 1" />
-        <img [src]="liste_image[1]" alt="Puffy Charlotte Ring 2" />
-        <img [src]="liste_image[2]" alt="Puffy Charlotte Ring 3" />
-        <img [src]="liste_image[3]" alt="Puffy Charlotte Ring 4" />
-        <img [src]="liste_image[4]" alt="Puffy Charlotte Ring 5" />
+        <div *ngFor="let img of produit.image; index as i">
+            <img [src]="img" alt="Puffy Charlotte Ring {{i}}" />
+        </div>
     </div>
 
 </div>

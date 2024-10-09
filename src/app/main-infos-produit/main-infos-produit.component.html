@@ -1,8 +1,8 @@
-<h1>{{title}}</h1>
-<p id="price">{{price }} € </p>
+<h1>{{produit.title}}</h1>
+<p id="price">{{produit.prix }} € </p>
 <div class="border-bottom"></div>
 <div class="liste-color">
-    <p> {{ color1.nom }}</p>
+    <p> {{ produit.color[0] }}</p>
 
     <div class="d-flex aligns-item-center justify-content-start">
         <button #btncolor></button>
@@ -14,7 +14,7 @@
     <div class="liste-size">
         <p>Select Size</p>
         <div class="d-flex aligns-item-center justify-content-start">
-            <div *ngFor="let index of size">
+            <div *ngFor="let index of produit.size">
                 <button> {{index}}</button>
             </div>
         </div>
@@ -56,7 +56,7 @@
                 </button>
             </h2>
             <div id="flush-collapseOne" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{details }}</div>
+                <div class="accordion-body">{{produit.details }}</div>
             </div>
         </div>
         <div class="accordion-item">
@@ -67,7 +67,7 @@
                 </button>
             </h2>
             <div id="flush-collapseTwo" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body">{{description}}</div>
+                <div class="accordion-body">{{produit.description}}</div>
             </div>
         </div>
         <div class="accordion-item">
@@ -78,7 +78,7 @@
                 </button>
             </h2>
             <div id="flush-collapseThree" class="accordion-collapse collapse" data-bs-parent="#accordionFlushExample">
-                <div class="accordion-body"> {{materials}} </div>
+                <div class="accordion-body"> {{produit.materials}} </div>
             </div>
         </div>
     </div>
