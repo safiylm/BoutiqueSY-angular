@@ -1,0 +1,50 @@
+.un-produit {
+    margin: 2px;
+    width: 20vw;
+}
+
+img {
+    width: 20vw;
+    height: 25vw;
+    object-fit: cover;
+}
+
+#imghover {
+    display: none;
+}
+
+.un-produit:hover {
+    transition-duration: 2000ms;
+
+    #imghover {
+        display: block;
+    }
+
+    #img {
+        display: none;
+    }
+
+    #nomprod {
+        font-weight: 600;
+        margin: 5px 0;
+
+    }
+
+    #prixprod {
+        margin: 0;
+    }
+
+    #color {
+        font-size: small;
+    }
+
+    #btn-color {
+        width: 15px;
+        height: 15px;
+        border-radius: 50%;
+        border: none;
+        background-color: #eac37c;
+        margin-right: 5px;
+        margin-bottom: 5px;
+    }
+}
