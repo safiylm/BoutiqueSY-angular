@@ -11,6 +11,8 @@ import { CommentsProduitComponent } from './comments-produit/comments-produit.co
 import { FooterComponent } from './footer/footer.component';
 import { ProductPageComponent } from './product-page/product-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
+import { HomeComponent } from './home/home.component';
+import { ProduitCardComponent } from './produit-card/produit-card.component';
 
 @NgModule({
   declarations: [
@@ -21,7 +23,9 @@ import { ReactiveFormsModule } from '@angular/forms';
     BestSellersComponent,
     CommentsProduitComponent,
     FooterComponent,
-    ProductPageComponent
+    ProductPageComponent,
+    HomeComponent,
+    ProduitCardComponent
   ],
   imports: [
     BrowserModule,
