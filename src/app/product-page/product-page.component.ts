@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Produit } from 'src/models/produit.model';
 import { ProduitService } from 'src/services/produit-service';
 
@@ -9,11 +10,16 @@ import { ProduitService } from 'src/services/produit-service';
 })
 export class ProductPageComponent {
 
+  id !: string ;
   produit !: Produit;
-  constructor(private produitService : ProduitService){
+  constructor(private produitService : ProduitService,
+    private route: ActivatedRoute
+  ){
   }
 
   ngOnInit(){
-    this.produit = this.produitService.getProductById("123")
+    this.id = this.route.snapshot.paramMap.get('id')!;
+
+    this.produit = this.produitService.getProductById(this.id)
   }
 }
