@@ -13,6 +13,7 @@ import { ProductPageComponent } from './product-page/product-page.component';
 import { ReactiveFormsModule } from '@angular/forms';
 import { HomeComponent } from './home/home.component';
 import { ProduitCardComponent } from './produit-card/produit-card.component';
+import { CollectionPageComponent } from './collection-page/collection-page.component';
 
 @NgModule({
   declarations: [
@@ -25,7 +26,8 @@ import { ProduitCardComponent } from './produit-card/produit-card.component';
     FooterComponent,
     ProductPageComponent,
     HomeComponent,
-    ProduitCardComponent
+    ProduitCardComponent,
+    CollectionPageComponent
   ],
   imports: [
     BrowserModule,

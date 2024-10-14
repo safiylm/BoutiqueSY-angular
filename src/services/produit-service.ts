@@ -6,26 +6,30 @@ import { Produit } from '../models/produit.model';
 })
 
 export class ProduitService {
-    p1 = new Produit("4",
+    p1 = new Produit
+        ("4",
 
-        "Puffy Charlotte Ring",
-        ['Sterling Silver',
-            'Gold Vermeil'],
-        ['https://cdn.shopify.com/s/files/1/0837/7489/8461/files/0-INFLATEDCHARLOTTE-InflatedCharlotteRing-SS-Angled_040_62ed8e65-7e1f-437b-90d1-126d716e9f32.jpg?v=1722952733&width=1200&height=1433&crop=center'
-            , "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/1-INFLATEDCHARLOTTE-InflatedCharlotteRingSilver-SS-Stack2_058_c96781af-abfb-4356-92d2-5a1a193ee0c3.jpg?v=1722952733&width=1200&height=1433&crop=center",
-            "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/2-INFLATEDCHARLOTTE-InflatedCharlotteRingSilver-SS-Stack1_046_4da4d730-60ed-45c0-bc1c-b203d27c0147.jpg?v=1722952733&width=1200&height=1433&crop=center",
-            "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/3-INFLATEDCHARLOTTE-InflatedCharlotteRing-SS-Back_018.jpg?v=1722952733&width=1200&height=1433&crop=center",
-            "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/4-INFLATEDCHARLOTTE-InflatedCharlotteRing-SS-TopDown_014_199573a4-5618-4068-a33d-191f98aeb012.jpg?v=1722952733&width=1200&height=1433&crop=center"
-        ],
-        68,
-        ["4", "5", "6", "7", "8", "9", "10", "11", "12"],
-        "- Top Width: 12.5 mm - Shank Thickness: 2 mm",
-        "Designed for doing big things. The boldest pieces in our Charlotte Collection want you to take up space—all of it. ",
-        "925 Sterling Silver is a lightweight metal made of 92.5% pure silver. It’s highly durable and designed for everyday wear.")
-  
+            "Puffy Charlotte Ring",
+            "Ring",
+            ['Sterling Silver',
+                'Gold Vermeil'],
+            ['https://cdn.shopify.com/s/files/1/0837/7489/8461/files/0-INFLATEDCHARLOTTE-InflatedCharlotteRing-SS-Angled_040_62ed8e65-7e1f-437b-90d1-126d716e9f32.jpg?v=1722952733&width=1200&height=1433&crop=center'
+                , "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/1-INFLATEDCHARLOTTE-InflatedCharlotteRingSilver-SS-Stack2_058_c96781af-abfb-4356-92d2-5a1a193ee0c3.jpg?v=1722952733&width=1200&height=1433&crop=center",
+                "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/2-INFLATEDCHARLOTTE-InflatedCharlotteRingSilver-SS-Stack1_046_4da4d730-60ed-45c0-bc1c-b203d27c0147.jpg?v=1722952733&width=1200&height=1433&crop=center",
+                "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/3-INFLATEDCHARLOTTE-InflatedCharlotteRing-SS-Back_018.jpg?v=1722952733&width=1200&height=1433&crop=center",
+                "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/4-INFLATEDCHARLOTTE-InflatedCharlotteRing-SS-TopDown_014_199573a4-5618-4068-a33d-191f98aeb012.jpg?v=1722952733&width=1200&height=1433&crop=center"
+            ],
+            68,
+            ["4", "5", "6", "7", "8", "9", "10", "11", "12"],
+            "- Top Width: 12.5 mm - Shank Thickness: 2 mm",
+            "Designed for doing big things. The boldest pieces in our Charlotte Collection want you to take up space—all of it. ",
+            "925 Sterling Silver is a lightweight metal made of 92.5% pure silver. It’s highly durable and designed for everyday wear.")
+
     liste_produits: Produit[] = [new Produit(
         "0",
-        "Bold Huggie Hoops",
+       
+        "Bold Huggie Hoops", 
+        "Earrings",
         ['14k Yellow Gold'],
         ["https://cdn.shopify.com/s/files/1/0837/7489/8461/files/0-BoldHuggieHoops-14K-Angled_019_dd57d6ce-3452-4d5a-acb9-c949dd851e26.jpg",
             "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/1-BoldHuggieHoops-14K-Stack1_031_39ce9bd2-f10f-4f9a-be17-9b612257d8a2.jpg",
@@ -39,7 +43,7 @@ export class ProduitService {
         "14k Gold When properly cared for, our 14k gold pieces can last forever. With its beautiful, subtle hue, you can wear your jewelry every day, everywhere."
 
     ),
-    new Produit("1", "Tube Huggie Hoops",
+    new Produit("1", "Tube Huggie Hoops", "Earrings",
         ['Gold Vermeil'],
         ["https://cdn.shopify.com/s/files/1/0837/7489/8461/files/0-NewHoopStandard_TubeHoopsHuggie12mm_V_ANGLED_175_2c53943e-96fd-4b73-89b0-c1a91be0ced8.jpg",
             "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/1-NewHoopStandard_TubeHoopsHuggie12mm_V_Solo_021_afba5c6f-8ff7-4e59-a345-943c6223ea2b.jpg",
@@ -53,7 +57,8 @@ export class ProduitService {
         "- Outer Diameter: 12 mm - Width: 2 mm - Thickness: 2 mm",
         "A modern take on tubes. These bold hoops are lightweight enough to wear effortlessly, featuring a clicker closure for maximum comfort and security.",
         "Not to be confused with regular gold plating, our vermeil is a thick layer of 18k solid gold on sterling silver meaning it will last longer. You get the look & feel of gold jewelry at a fraction of the price."),
-    new Produit("2", "Pavé Diamond Pearl Huggies",
+   
+        new Produit("2", "Pavé Diamond Pearl Huggies", "Earrings",
         ['14k Yellow Gold'],
         ["https://cdn.shopify.com/s/files/1/0837/7489/8461/files/0_PaveDiamondPearlHuggies_Earrings_YG_Hero_c1e9f2b9-1182-4070-a067-09e6ed47bb88.jpg",
             "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/2_PaveDiamondPearlHuggies_Earrings_YG_Solo_Rich.jpg",
@@ -67,7 +72,7 @@ export class ProduitService {
         "Any time, any place these huggies fit the bill. Handcrafted in 14k solid gold featuring 22 diamonds in a pavé setting and a round freshwater pearl—it’s your essential diamond earring with a fresh twist.",
         "14k Gold When properly cared for, our 14k gold pieces can last forever. With its beautiful, subtle hue, you can wear your jewelry every day, everywhere."
     ),
-    new Produit("3", "Dôme Huggies",
+    new Produit("3", "Dôme Huggies", "Earrings",
         ['Sterling Silver'],
         ["https://cdn.shopify.com/s/files/1/0837/7489/8461/files/0_DomeHuggies_earrings_yg_hero_Comp_83a98215-f62f-4b50-8d13-e4ceaade717e.jpg",
             "https://cdn.shopify.com/s/files/1/0837/7489/8461/files/1_DomeHuggies_v_fair_hero_5ab92108-899b-47d4-a956-08f7710c2132.jpg"],
@@ -76,24 +81,26 @@ export class ProduitService {
         "Part of the iconic Mejuri Dôme collection, these lobe-hugging earrings have a sleek sculptural style and rounded vault. It’s as bold as it is understated and perfect for stacking and everyday wear.",
         "925 Sterling Silver is a lightweight metal made of 92.5% pure silver. It’s highly durable and designed for everyday wear."
     ),
-this.p1]
-    
+    this.p1]
+
     constructor() { }
 
     getProducts(): Produit[] {
-  this.liste_produits.push(this.p1)
-        this.liste_produits.push(this.p1)
-        this.liste_produits.push(this.p1)
-        this.liste_produits.push(this.p1)
-    
-       
-
         return this.liste_produits
     }
 
     getProductById(id: string): Produit {
-    
-        return this.liste_produits[Number(id )];
+        return this.liste_produits[Number(id)];
+    }
+
+    getProductByCategorie(categorie: string): Produit[] {
+        let listeProdCateg  : any ;
+        this.liste_produits.forEach((e: Produit)=>{
+            if(e.categorie == categorie){
+                listeProdCateg.push(e)
+            }
+        })
+        return listeProdCateg;
     }
 
 }
