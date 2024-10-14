@@ -1,8 +1,19 @@
-.nav{
+.nav {
     width: 100vw;
-    padding: 20px ;
+    padding: 20px;
     height: auto;
     background-color: black;
     color: white;
-    
+
+    a {
+        padding: 0 15px;
+        text-transform: uppercase;
+        text-decoration: none;
+        font-size: 0.9rem;
+        color: white;
+
+    }
+    .liste-categorie {
+        margin: 0;
+    }
 }
