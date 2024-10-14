@@ -1,14 +1,15 @@
-<h1>{{produit.title}}</h1>
-<p id="price">{{produit.prix }} € </p>
-<div class="border-bottom"></div>
-<div class="liste-color">
-    <p> {{ produit.color[0] }}</p>
+<div id="main-infos-prod">
+    <h1>{{produit.title}}</h1>
+    <p id="price">{{produit.prix }} € </p>
+    <div class="border-bottom"></div>
+    <div class="liste-color">
+        <p> {{ produit.color[0] }}</p>
 
-    <div class="d-flex aligns-item-center justify-content-start">
-        <button #btncolor></button>
-        <button #btncolor2></button>
+        <div class="d-flex aligns-item-center justify-content-start">
+            <button #btncolor></button>
+            <button #btncolor2></button>
+        </div>
     </div>
-</div>
     <div class="border-bottom"></div>
 
     <div class="liste-size">
@@ -82,3 +83,4 @@
             </div>
         </div>
     </div>
+</div>

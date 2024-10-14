@@ -1,11 +1,16 @@
 body {
     width: 45vw;
+
+    * {
+        font-size: .85rem;
+        font-family: BrandonGrotesque, sans-serif;
+    }
 }
 
-* {
-    font-size: .85rem;
-    font-family: BrandonGrotesque, sans-serif;
+#main-infos-prod {
+    width: 35vw;
 }
+
 
 h1 {
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif !important;
@@ -16,7 +21,7 @@ h1 {
 
 }
 
-#price{
+#price {
     font-size: x-large;
     font-weight: 700;
     color: rgb(27, 26, 26);
@@ -33,7 +38,7 @@ h1 {
         height: 30px;
         border-radius: 50%;
         border: none;
-        margin-right: 5px ;
+        margin-right: 5px;
     }
 
     p {
@@ -100,13 +105,15 @@ h1 {
     button:last-child {
         width: 15%;
     }
-    :hover{
+
+    :hover {
         background-color: #626262;
     }
 }
 
 .accordion {
     margin: 20px 0;
+
     .accordion-button {
         text-transform: uppercase;
     }
