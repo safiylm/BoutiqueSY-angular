@@ -15,6 +15,8 @@ export class CollectionPageComponent {
 
    ngOnInit(){
     this.categorie = this.route.snapshot.paramMap.get('categorie')!;
-    this.produitService.getProductByCategorie(this.categorie);
+   this.listeProduits = this.produitService.getProductByCategorie(this.categorie)
+    
+  
   }
 }
