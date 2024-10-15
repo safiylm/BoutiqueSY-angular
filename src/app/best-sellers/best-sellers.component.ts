@@ -8,7 +8,6 @@ import { ProduitService } from 'src/services/produit-service';
   styleUrls: ['./best-sellers.component.scss']
 })
 export class BestSellersComponent {
-
   products !: Produit[];
 
   constructor(protected produitService : ProduitService){}
@@ -16,5 +15,6 @@ export class BestSellersComponent {
   ngOnInit(){
     this.products = this.produitService.getProductByCategorie("Rings")
   } 
+
 
 }
