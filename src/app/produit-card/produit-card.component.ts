@@ -9,6 +9,7 @@ import { Produit } from 'src/models/produit.model';
 export class ProduitCardComponent {
   imagehover : boolean = false;
   @Input() produit !: Produit;
+  
   imagehover_(){
     this.imagehover = true
   }
