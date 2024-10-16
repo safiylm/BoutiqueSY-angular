@@ -260,7 +260,7 @@ export class ProduitService {
     }
 
     removeWishList(p: Produit) {
-        return this.wishlist.filter(e => e._id !== p._id)
+        this.wishlist = this.wishlist.filter(e => e._id !== p._id)
     }
 
     getWishList(): Produit[] {
@@ -276,7 +276,7 @@ export class ProduitService {
     }
 
     removePanierList(p: Produit) {
-        return this.panierlist.filter(e => e._id !== p._id)
+        this.panierlist = this.panierlist.filter(e => e._id !== p._id)
     }
 
     getPanierList(): Produit[] {
