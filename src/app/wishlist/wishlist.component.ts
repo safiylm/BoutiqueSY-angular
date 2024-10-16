@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { Produit } from 'src/models/produit.model';
+import { ProduitService } from 'src/services/produit-service';
 
 @Component({
   selector: 'app-wishlist',
@@ -6,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./wishlist.component.scss']
 })
 export class WishlistComponent {
+
+  products !: Produit[];
+
+  constructor(protected produitService : ProduitService){}
+
+  ngOnInit(){
+    this.products = this.produitService.getWishList();
+  } 
 
 }
