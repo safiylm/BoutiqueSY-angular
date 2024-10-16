@@ -227,6 +227,9 @@ export class ProduitService {
             ),
     ]
 
+    wishlist: Produit[] = [];
+    panierlist: Produit[] = [];
+
     constructor() { }
 
     getProducts(): Produit[] {
@@ -247,4 +250,36 @@ export class ProduitService {
         return this.liste_produits.filter((e) => e.categorie == categorie)
     }
 
+    pushWishList(p: Produit) {
+        if( !this.isDejaInWishList(p))
+        this.wishlist.push(p);
+    }
+
+    isDejaInWishList(p: Produit): boolean {
+        return this.wishlist.filter(e => e._id == p._id).length > 0;
+    }
+
+    removeWishList(p: Produit) {
+        return this.wishlist.filter(e => e._id !== p._id)
+    }
+
+    getWishList(): Produit[] {
+        return this.wishlist;
+    }
+
+    pushPanierList(p: Produit) {
+        this.panierlist.push(p);
+    }
+
+    isDejaInPanierList(p: Produit): boolean {
+        return this.panierlist.filter(e => e._id == p._id).length > 0;
+    }
+
+    removePanierList(p: Produit) {
+        return this.panierlist.filter(e => e._id !== p._id)
+    }
+
+    getPanierList(): Produit[] {
+        return this.panierlist;
+    }
 }
