@@ -1,1 +1,4 @@
-<p>panier works!</p>
+<div class="panier d-flex flex-column align-items-center justify-content-center">
+    <div *ngIf="products.length==0">Votre panier est vide.  </div>
+    <app-produit-card *ngFor="let produit of products" [produit]="produit"> </app-produit-card>
+</div> 
