@@ -1,1 +1,21 @@
-<p>login works!</p>
+<form [formGroup]="LoginForm" *ngIf="dejaUnCompte" (ngSubmit)="submitLogin()">
+    <h2>Se Connecter</h2>
+    <input type="email" class="form-control" formControlName="email" placeholder="Email*" autocomplete="new-email" />
+    <input type="password" class="form-control" formControlName="password" placeholder="Password*" autocomplete="new-password" />
+    <div class="d-flex align-items-center justify-content-around">
+        <button type="submit" class="btn btn-dark">Log in</button>
+        <a (click)="toggleLogin()">Pas de compte?</a>
+    </div>
+</form>
+
+<form [formGroup]="SignInForm" *ngIf="!dejaUnCompte" (ngSubmit)="submitSignIn()">
+    <h2>S'Inscrire</h2>
+    <input type="text" class="form-control" formControlName="nom" placeholder="Nom*" />
+    <input type="text" class="form-control" formControlName="prenom" placeholder="Prenom*" />
+    <input type="email" class="form-control" formControlName="email" placeholder="Email*" autocomplete="new-email" />
+    <input type="password" class="form-control" formControlName="password" placeholder="Password*" autocomplete="new-password" />
+    <div class="d-flex align-items-center justify-content-around">
+        <button type="submit" class="btn btn-dark">Sign in</button>
+        <a (click)="toggleLogin()">Se connecter?</a>
+    </div>
+</form>

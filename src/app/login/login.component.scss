@@ -1,0 +1,22 @@
+form {
+    * {
+        margin: 5px 0;
+    }
+
+    h2 {
+        text-transform: uppercase;
+        font-size: xx-large;
+        font-weight: 900;
+        margin: 20px auto;
+        display: block;
+        text-align: center;
+    }
+
+    a {
+        cursor: pointer;
+    }
+
+    a:hover {
+        text-decoration: underline;
+    }
+}
