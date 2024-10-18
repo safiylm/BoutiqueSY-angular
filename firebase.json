@@ -1,6 +1,6 @@
 {
   "hosting": {
-    "public": "n/boutiquesy",
+    "public": "n",
     "ignore": [
       "firebase.json",
       "**/.*",
