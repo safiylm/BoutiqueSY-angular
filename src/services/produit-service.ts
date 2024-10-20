@@ -193,15 +193,15 @@ export class ProduitService {
     constructor(private http: HttpClient, public router: Router) { }
 
     getProducts(): Observable<Produit[]> {
-        return this.http.get<Produit[]>("http://localhost:3000/api/products")
+        return this.http.get<Produit[]>("https://boutiquesy-angular.onrender.com/api/products")
     }
 
     getProductById(id: string): Observable<Produit> {
-        return this.http.get<Produit>("http://localhost:3000/api/product?id=" +id )
+        return this.http.get<Produit>("https://boutiquesy-angular.onrender.com/api/product?id=" +id )
     }
 
     getProductByCategorie(categorie: string):  Observable<Produit[]> {
-        return this.http.get<Produit[]>("http://localhost:3000/api/product/categorie?categorie="+categorie)         
+        return this.http.get<Produit[]>("https://boutiquesy-angular.onrender.com/api/product/categorie?categorie="+categorie)         
     }
 
     pushWishList(p: Produit) {
