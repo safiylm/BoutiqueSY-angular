@@ -1,8 +1,8 @@
 <div class="un-produit">
     <a href="/product/{{produit._id}}" >
-    <img [alt]="produit.title" [src]="produit.image[0]" id="img"/>
-    <img [alt]="produit.title" [src]="produit.image[1]" id="imghover"/>
-    <p id="nomprod"> {{ produit.title }} </p>
+    <img [alt]="produit.name" [src]="produit.image[0]" id="img"/>
+    <img [alt]="produit.name" [src]="produit.image[1]" id="imghover"/>
+    <p id="nomprod"> {{ produit.name }} </p>
     <p id="prixprod">{{produit.prix}} EUR</p>
     <button id="btn-color"></button>
     <p id="color">{{produit.color}}</p>
