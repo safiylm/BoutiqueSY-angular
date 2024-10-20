@@ -13,7 +13,12 @@ export class BestSellersComponent {
   constructor(protected produitService : ProduitService){}
 
   ngOnInit(){
-    this.products = this.produitService.getProductByCategorie("Rings")
+    this.produitService.getProductByCategorie("Rings").subscribe({
+     next : (data)=>{
+        this.products = data;
+      },
+      error: (e) => console.error(e)
+    })
   } 
 
 

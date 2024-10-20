@@ -13,13 +13,16 @@ export class ProductPageComponent {
   id !: string ;
   produit !: Produit;
   constructor(private produitService : ProduitService,
-    private route: ActivatedRoute
-  ){
-  }
+    private route: ActivatedRoute ){ }
 
   ngOnInit(){
     this.id = this.route.snapshot.paramMap.get('id')!;
 
-    this.produit = this.produitService.getProductById(this.id)
+    this.produitService.getProductById(this.id).subscribe({
+      next: (data) => {
+        this.produit = data;
+      },
+      error: (e) => console.error(e)
+    });
   }
 }

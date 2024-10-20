@@ -10,11 +10,17 @@ import { ProduitService } from 'src/services/produit-service';
 
 export class HomeComponent {
 
-  listeProduits : Produit[] = this.produitService.getProducts()
+  listeProduits !: Produit[] ;
   constructor(private produitService : ProduitService){}
 
    ngOnInit(){
-
+    this.produitService.getProducts().subscribe({
+      next: (data) => {
+        this.listeProduits = data;
+        //  console.log(data);
+      },
+      error: (e) => console.error(e)
+    });
   }
 
 }

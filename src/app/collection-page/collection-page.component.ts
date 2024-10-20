@@ -9,14 +9,17 @@ import { ProduitService } from 'src/services/produit-service';
   styleUrls: ['./collection-page.component.scss']
 })
 export class CollectionPageComponent {
-  listeProduits !: Produit[] ;
+  listeProduits !: Produit[];
   categorie !: string;
-  constructor(private produitService : ProduitService, private route: ActivatedRoute){}
+  constructor(private produitService: ProduitService, private route: ActivatedRoute) { }
 
-   ngOnInit(){
+  ngOnInit() {
     this.categorie = this.route.snapshot.paramMap.get('categorie')!;
-   this.listeProduits = this.produitService.getProductByCategorie(this.categorie)
-    
-  
+    this.produitService.getProductByCategorie(this.categorie).subscribe({
+      next: (data) => {
+        this.listeProduits = data;
+      },
+      error: (e) => console.error(e)
+    });
   }
 }
