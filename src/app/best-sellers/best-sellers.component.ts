@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { Produit } from 'src/models/produit.model';
 import { ProduitService } from 'src/services/produit-service';
 
@@ -11,9 +11,10 @@ export class BestSellersComponent {
   products !: Produit[];
 
   constructor(protected produitService : ProduitService){}
+  @Input() categorie !: string;
 
   ngOnInit(){
-    this.produitService.getProductByCategorie("Rings").subscribe({
+    this.produitService.getProductByCategorie(this.categorie).subscribe({
      next : (data)=>{
         this.products = data;
       },
