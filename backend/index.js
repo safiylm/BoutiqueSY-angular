@@ -1,10 +1,29 @@
 const express = require('express');
-const db = require('./config/db.config.js')
 const app = express();
+var bodyParser = require('body-parser');
 
+app.use(bodyParser.json());
+app.use(bodyParser.urlencoded({ 
+  extended: true 
+}));
 const port = 3000;
-const router_user = require("./routes/product.route")
+const router_product= require("./routes/product.route")
+const router_user = require("./routes/user.route")
+const cors = require("cors");
 
+
+app.use((req, res, next) => {
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  next();
+});
+
+var corsOptions = {
+  origin: "*"
+};
+
+app.use(cors(corsOptions));
+app.use(router_product )
 app.use(router_user )
 
 app.get('/', (req, res) => {
