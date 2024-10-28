@@ -18,14 +18,11 @@ export class LoginComponent {
   @ViewChild("signininfo") signininfo !: ElementRef;
 
 
-  ngOnInit() {
-    this.logininfo.nativeElement.innerText = "";
-    this.signininfo.nativeElement.innerText = "";
-  }
-
   ngAfterViewInit() {
     this.logininfo.nativeElement.innerText = "";
+   setTimeout(()=>{
     this.signininfo.nativeElement.innerText = "";
+   }, 4500)
   }
 
   LoginForm = new FormGroup({
@@ -43,6 +40,9 @@ export class LoginComponent {
 
   toggleLogin() {
     this.dejaUnCompte = !this.dejaUnCompte;
+   
+
+
   }
 
   submitLogin() {

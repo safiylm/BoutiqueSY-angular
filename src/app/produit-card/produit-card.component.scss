@@ -7,7 +7,7 @@ img {
     object-fit: cover;
     min-width: 250px;
     min-height: 300px;
-    width: 300px;
+    width: calc(300px - 2rem);
     height: 370px;
 }
 
@@ -60,4 +60,8 @@ img {
     #img {
         display: none;
     }
+}
+
+.bg-body-tertiary{
+    background-color: rgb(245, 243, 237, 0.42) !important;
 }
