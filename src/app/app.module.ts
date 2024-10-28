@@ -1,4 +1,4 @@
-import { NgModule } from '@angular/core';
+import { LOCALE_ID, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -19,6 +19,8 @@ import { PanierComponent } from './panier/panier.component';
 import { WishlistComponent } from './wishlist/wishlist.component';
 import { SearchComponent } from './search/search.component';
 import {HttpClientModule} from "@angular/common/http";
+import { InputPasswordComponent } from './input-password/input-password.component';
+import { HashLocationStrategy } from '@angular/common';
 
 @NgModule({
   declarations: [
@@ -36,7 +38,8 @@ import {HttpClientModule} from "@angular/common/http";
     LoginComponent,
     PanierComponent,
     WishlistComponent,
-    SearchComponent
+    SearchComponent,
+    InputPasswordComponent
   ],
   imports: [
    HttpClientModule, 
@@ -44,7 +47,7 @@ import {HttpClientModule} from "@angular/common/http";
     AppRoutingModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [ { provide:  LOCALE_ID,  useValue: 'fr-FR', useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

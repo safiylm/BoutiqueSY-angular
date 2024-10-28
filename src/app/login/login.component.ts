@@ -2,6 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
 import { User } from 'src/models/user.model';
 import { UserService } from 'src/services/user-service';
+import * as bcrypt from "bcryptjs";
 
 
 @Component({
@@ -21,7 +22,6 @@ export class LoginComponent {
     this.logininfo.nativeElement.innerText = "";
     this.signininfo.nativeElement.innerText = "";
   }
-
 
   ngAfterViewInit() {
     this.logininfo.nativeElement.innerText = "";
@@ -50,11 +50,29 @@ export class LoginComponent {
       next:
         (data: any) => {
           setTimeout(() => {
-            if (data.password == this.LoginForm.value['password']) {
-              this.logininfo.nativeElement.innerText = "Votre mot de passe est bon.";
-              this.logininfo.nativeElement.style.color = "green";
-            } else {
-              this.logininfo.nativeElement.innerText = "Votre mot de passe est inccorecte.";
+            if (data != null) {
+              //if (data.password == this.LoginForm.value['password']) {
+              bcrypt.compare(this.LoginForm.value['password'] as string, data.password,
+                 (err, data1) => {
+                //if error than throw error
+                if (err) throw err
+
+                //if both match than you can do anything
+                if (data1) {
+                  this.logininfo.nativeElement.innerText = "Votre mot de passe est bon.";
+                  this.logininfo.nativeElement.style.color = "green";
+                 // localStorage.setItem('isLoggedIn', "true");
+                //  localStorage.setItem('userId', data["_id"]);
+                 // window.location.href = '/mon-compte'
+               
+                } else {
+                  this.logininfo.nativeElement.innerText = "Votre mot de passe est inccorecte.";
+                  this.logininfo.nativeElement.style.color = "red";
+                }
+              })
+            }
+            else {
+              this.logininfo.nativeElement.innerText = "Votre email est incorrecte.";
               this.logininfo.nativeElement.style.color = "red";
             }
 
@@ -67,14 +85,15 @@ export class LoginComponent {
   }
 
   submitSignIn() {
+    const salt = bcrypt.genSaltSync(10);
     let user = new User("",
       this.SignInForm.value['fisrtname']?.toString() as string,
       this.SignInForm.value['lastname']?.toString() as string,
       this.SignInForm.value['email']!.toString() as string,
-      this.SignInForm.value['password']!.toString() as string,
+      bcrypt.hashSync(this.SignInForm.value['password']?.toString() as string, salt) as string,
       this.SignInForm.value['phoneNo'] as unknown as number
     )
-
+      
     this.userService.signin(user).subscribe({
       next:
         (data: any) => {
@@ -90,6 +109,6 @@ export class LoginComponent {
             console.log(data);
           }, 2000)
         }
-  })
-}
+    })
+  }
 }
