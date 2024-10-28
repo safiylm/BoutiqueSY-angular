@@ -1,7 +1,7 @@
 <form [formGroup]="LoginForm" *ngIf="dejaUnCompte" (ngSubmit)="submitLogin()">
     <h2>Se Connecter</h2>
     <input type="email" class="form-control" formControlName="email" placeholder="Email*" autocomplete="new-email" />
-    <input type="password" class="form-control" formControlName="password" placeholder="Password*" autocomplete="new-password" />
+    <app-input-password (customEvent)="handleEvent($event)"></app-input-password> 
     <div class="d-flex align-items-center justify-content-around">
         <button type="submit" class="btn btn-dark">Log in</button>
         <a (click)="toggleLogin()">Pas de compte?</a>
@@ -15,9 +15,9 @@
     <input type="text" class="form-control" formControlName="fisrtname" placeholder="Nom*" />
     <input type="text" class="form-control" formControlName="lastname" placeholder="Prenom*" />
     <input type="email" class="form-control" formControlName="email" placeholder="Email*" autocomplete="new-email" />
-    <input type="password" class="form-control" formControlName="password" placeholder="Password*" autocomplete="new-password" />
     <input type="number" class="form-control" formControlName="phoneNo" placeholder="Numéro de téléphone" autocomplete="tel-national" />
-    <div class="d-flex align-items-center justify-content-around">
+    <app-input-password (customEvent)="handleEvent($event)"></app-input-password> 
+     <div class="d-flex align-items-center justify-content-around">
         <button type="submit" class="btn btn-dark">Sign in</button>
         <a (click)="toggleLogin()">Log In ?</a>
     </div>

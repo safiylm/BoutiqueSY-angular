@@ -46,41 +46,42 @@ export class LoginComponent {
   }
 
   submitLogin() {
-    this.userService.login(this.LoginForm.value['email'] as string).subscribe({
-      next:
-        (data: any) => {
-          setTimeout(() => {
-            if (data != null) {
-              //if (data.password == this.LoginForm.value['password']) {
-              bcrypt.compare(this.LoginForm.value['password'] as string, data.password,
-                 (err, data1) => {
-                //if error than throw error
-                if (err) throw err
+    if ((this.LoginForm.value['email']!.length > 5) && (this.LoginForm.value['password']!.length > 5))
+      this.userService.login(this.LoginForm.value['email'] as string).subscribe({
+        next:
+          (data: any) => {
+            setTimeout(() => {
+              if (data != null) {
+                //if (data.password == this.LoginForm.value['password']) {
+                bcrypt.compare(this.LoginForm.value['password'] as string, data.password,
+                  (err, data1) => {
+                    //if error than throw error
+                    if (err) throw err
 
-                //if both match than you can do anything
-                if (data1) {
-                  this.logininfo.nativeElement.innerText = "Votre mot de passe est bon.";
-                  this.logininfo.nativeElement.style.color = "green";
-                 // localStorage.setItem('isLoggedIn', "true");
-                //  localStorage.setItem('userId', data["_id"]);
-                 // window.location.href = '/mon-compte'
-               
-                } else {
-                  this.logininfo.nativeElement.innerText = "Votre mot de passe est inccorecte.";
-                  this.logininfo.nativeElement.style.color = "red";
-                }
-              })
-            }
-            else {
-              this.logininfo.nativeElement.innerText = "Votre email est incorrecte.";
-              this.logininfo.nativeElement.style.color = "red";
-            }
+                    //if both match than you can do anything
+                    if (data1) {
+                      this.logininfo.nativeElement.innerText = "Votre mot de passe est bon.";
+                      this.logininfo.nativeElement.style.color = "green";
+                      // localStorage.setItem('isLoggedIn', "true");
+                      //  localStorage.setItem('userId', data["_id"]);
+                      // window.location.href = '/mon-compte'
 
-            console.log(data);
-          }, 2000)
-        }
+                    } else {
+                      this.logininfo.nativeElement.innerText = "Votre mot de passe est inccorecte.";
+                      this.logininfo.nativeElement.style.color = "red";
+                    }
+                  })
+              }
+              else {
+                this.logininfo.nativeElement.innerText = "Votre email est incorrecte.";
+                this.logininfo.nativeElement.style.color = "red";
+              }
 
-    })
+              console.log(data);
+            }, 2000)
+          }
+
+      })
 
   }
 
@@ -93,22 +94,40 @@ export class LoginComponent {
       bcrypt.hashSync(this.SignInForm.value['password']?.toString() as string, salt) as string,
       this.SignInForm.value['phoneNo'] as unknown as number
     )
-      
-    this.userService.signin(user).subscribe({
-      next:
-        (data: any) => {
-          setTimeout(() => {
-            if (data.insertedId) {
-              this.signininfo.nativeElement.innerText = "Inscription réussi.";
-              this.signininfo.nativeElement.style.color = "green";
-            } else {
-              this.signininfo.nativeElement.innerText = "Erreur Inscription.";
-              this.signininfo.nativeElement.style.color = "red";
-            }
 
-            console.log(data);
-          }, 2000)
-        }
-    })
+    console.log(this.SignInForm.value['password'])
+
+
+    if ((this.SignInForm.value['email']!.length > 5) &&
+      (this.SignInForm.value['password']!.length > 5) &&
+      (this.SignInForm.value['fisrtname']!.length > 2) &&
+      (this.SignInForm.value['lastname']!.length > 2))
+
+      this.userService.signin(user).subscribe({
+        next:
+          (data: any) => {
+            setTimeout(() => {
+              if (data.insertedId) {
+                this.signininfo.nativeElement.innerText = "Inscription réussi.";
+                this.signininfo.nativeElement.style.color = "green";
+              } else {
+                this.signininfo.nativeElement.innerText = "Erreur Inscription.";
+                this.signininfo.nativeElement.style.color = "red";
+              }
+
+              console.log(data);
+            }, 2000)
+          }
+      })
+    else {
+      this.signininfo.nativeElement.innerText = "Veuillez remplir les tous les champs.";
+      this.signininfo.nativeElement.style.color = "violetblue";
+    }
+  }
+
+  handleEvent(event: string) {
+    console.log(event);  // Affiche 'Hello Parent!' dans la console
+    this.SignInForm.value['password'] = event;
+    this.LoginForm.value['password'] = event;
   }
 }
