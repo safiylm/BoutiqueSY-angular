@@ -7,6 +7,8 @@ app.use(bodyParser.urlencoded({
   extended: true 
 }));
 const port = 3000;
+const router_panier= require("./routes/panier.route")
+const router_wishlist= require("./routes/wishlist.route")
 const router_product= require("./routes/product.route")
 const router_user = require("./routes/user.route")
 const cors = require("cors");
@@ -25,6 +27,8 @@ var corsOptions = {
 app.use(cors(corsOptions));
 app.use(router_product )
 app.use(router_user )
+app.use(router_panier )
+app.use(router_wishlist )
 
 app.get('/', (req, res) => {
   res.send("hello world");

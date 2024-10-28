@@ -21,6 +21,7 @@ import { SearchComponent } from './search/search.component';
 import {HttpClientModule} from "@angular/common/http";
 import { InputPasswordComponent } from './input-password/input-password.component';
 import { HashLocationStrategy } from '@angular/common';
+import { UserPageComponent } from './user-page/user-page.component';
 
 @NgModule({
   declarations: [
@@ -39,7 +40,8 @@ import { HashLocationStrategy } from '@angular/common';
     PanierComponent,
     WishlistComponent,
     SearchComponent,
-    InputPasswordComponent
+    InputPasswordComponent,
+    UserPageComponent
   ],
   imports: [
    HttpClientModule, 
