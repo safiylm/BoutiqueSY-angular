@@ -12,7 +12,7 @@ export class WishlistService {
 
     constructor(private http: HttpClient, public router: Router) { }
 
-    public getProductsByUserId(userId: string): Observable<any> {
+    public getByUserId(userId: string): Observable<any> {
         return this.http
             .get(
                 "http://localhost:3000/api/wishlist/u?userId="+ userId 

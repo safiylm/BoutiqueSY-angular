@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { Panier } from 'src/models/panier.model';
 import { Produit } from 'src/models/produit.model';
 import { PanierService } from 'src/services/panier-service';
 import { ProduitService } from 'src/services/produit-service';
@@ -11,18 +12,33 @@ import { ProduitService } from 'src/services/produit-service';
 export class PanierComponent {
 
   products !: Produit[];
+  panier !: Panier[];
 
-  constructor(protected produitService : ProduitService, 
-    protected panierService : PanierService
-  ){}
+  constructor(protected produitService: ProduitService,
+    protected panierService: PanierService
+  ) { }
 
-  ngOnInit(){
-    this.panierService.getProductsByUserId("671f5bb98f79cd2b1be4fc13").subscribe({
+  ngOnInit() {
+    this.products = []
+    this.panierService.getByUserId("671f5bb98f79cd2b1be4fc13").subscribe({
       next: (data) => {
-        this.products = data;
+        this.panier = data;
       },
       error: (e) => console.error(e)
     });
-  } 
+
+    setTimeout(() => {
+      this.panier.forEach(element => {
+        this.produitService.getProductById(element.productId).subscribe({
+          next: (data1) => {
+            this.products.push(data1)
+          },
+
+          error: (e) => console.error(e)
+        })
+      });
+
+    }, 2000)
+  }
 
 }
