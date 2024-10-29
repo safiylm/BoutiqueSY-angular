@@ -19,5 +19,28 @@ export class PanierService {
             )
     }
 
+    public getByProductId(productId: string): Observable<any> {
+        return this.http
+            .get(
+                "http://localhost:3000/api/panier/product?productId="+ productId 
+            )
+    }
+
+
+    public add(prod: Panier):  Observable<any> {
+        return this.http
+            .post<Panier>(
+                `http://localhost:3000/api/panier/add`,
+                prod,
+            )   
+    } 
+
+    public remove(id: string):  Observable<any> {
+        return this.http
+            .post<any>(
+                `http://localhost:3000/api/panier/remove`,
+                {"id":id},
+            )
+    }
 
 }
