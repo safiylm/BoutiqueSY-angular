@@ -40,4 +40,11 @@ exports.login = async (req, res) => {
 exports.getUsers = async (req, res) => {
     res.set('Access-Control-Allow-Origin', '*');
     res.send(await collection_users.find({}).toArray())
+   // res.send(await collection_users.deleteMany({}))
+}
+
+exports.getUserById = async (req, res) => {
+    res.set('Access-Control-Allow-Origin', '*');
+    res.send(await collection_users.findOne({ "_id": new ObjectId(req.query.id) }))
+   // res.send(await collection_users.deleteMany({}))
 }
