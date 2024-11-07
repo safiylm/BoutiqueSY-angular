@@ -61,7 +61,7 @@ export class MainInfosProduitComponent implements AfterViewInit {
 
   pushInPanier(){
     this.produitService.pushPanierList(this.produit)
-    this.panierService.add( new Panier("","671f5bb98f79cd2b1be4fc13", this.produit._id, "1", 1)
+    this.panierService.add( new Panier("",localStorage.getItem('userId') as string, this.produit._id, "1", 1)
     ).subscribe({
       next:
         (data: any) => {
@@ -72,7 +72,7 @@ export class MainInfosProduitComponent implements AfterViewInit {
   }
 
   pushInWishlist(){
-    this.wishlistService.add( new Wishlist("","671f5bb98f79cd2b1be4fc13", this.produit._id, "1")
+    this.wishlistService.add( new Wishlist("",localStorage.getItem('userId') as string, this.produit._id, "1")
     ).subscribe({
       next:
         (data: any) => {

@@ -20,7 +20,7 @@ export class PanierComponent {
 
   ngOnInit() {
     this.products = []
-    this.panierService.getByUserId("671f5bb98f79cd2b1be4fc13").subscribe({
+    this.panierService.getByUserId(localStorage.getItem('userId') as string).subscribe({
       next: (data) => {
         this.panier = data;
       },

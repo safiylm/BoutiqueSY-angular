@@ -22,7 +22,7 @@ export class WishlistComponent {
   ngOnInit() {
     this.products = [];
     this.wishlist = [];
-    this.wishlistService.getByUserId("671f5bb98f79cd2b1be4fc13").subscribe({
+    this.wishlistService.getByUserId(localStorage.getItem('userId') as string).subscribe({
       next: (data) => {
         this.wishlist = data
       },

@@ -40,13 +40,10 @@ export class LoginComponent {
 
   toggleLogin() {
     this.dejaUnCompte = !this.dejaUnCompte;
-   
-
-
   }
 
   submitLogin() {
-    if ((this.LoginForm.value['email']!.length > 5) && (this.LoginForm.value['password']!.length > 5))
+    if ((this.LoginForm.value['email']!.length > 5) && (this.LoginForm.value['password']!.length > 2))
       this.userService.login(this.LoginForm.value['email'] as string).subscribe({
         next:
           (data: any) => {
@@ -62,9 +59,11 @@ export class LoginComponent {
                     if (data1) {
                       this.logininfo.nativeElement.innerText = "Votre mot de passe est bon.";
                       this.logininfo.nativeElement.style.color = "green";
-                      // localStorage.setItem('isLoggedIn', "true");
-                      //  localStorage.setItem('userId', data["_id"]);
-                      // window.location.href = '/mon-compte'
+                      
+                      localStorage.setItem('userId', data["_id"]);
+                      localStorage.setItem('isLoggedIn', "true")
+                      window.location.href="/user"
+
 
                     } else {
                       this.logininfo.nativeElement.innerText = "Votre mot de passe est inccorecte.";
@@ -99,7 +98,7 @@ export class LoginComponent {
 
 
     if ((this.SignInForm.value['email']!.length > 5) &&
-      (this.SignInForm.value['password']!.length > 5) &&
+      (this.SignInForm.value['password']!.length > 2) &&
       (this.SignInForm.value['fisrtname']!.length > 2) &&
       (this.SignInForm.value['lastname']!.length > 2))
 
@@ -110,6 +109,10 @@ export class LoginComponent {
               if (data.insertedId) {
                 this.signininfo.nativeElement.innerText = "Inscription réussi.";
                 this.signininfo.nativeElement.style.color = "green";
+                
+                localStorage.setItem('isLoggedIn', "true")
+                window.location.href="/user"
+
               } else {
                 this.signininfo.nativeElement.innerText = "Erreur Inscription.";
                 this.signininfo.nativeElement.style.color = "red";
