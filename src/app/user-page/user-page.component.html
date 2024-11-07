@@ -1,1 +1,11 @@
-<p>user-page works!</p>
+<app-nav></app-nav>
+<div class="div0 d-flex align-items-center justify-content-between">
+    <h1>{{user.firstname | titlecase  }} {{user.lastname | titlecase  }}</h1>
+    <button class="btn btn-light" (click)="deconnexion()">Deconnexion</button>
+</div>
+
+<h2>Wishlist</h2>
+<app-wishlist></app-wishlist>
+
+<h2>Panier</h2>
+<app-panier></app-panier>
