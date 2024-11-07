@@ -9,6 +9,7 @@ import { ActivatedRoute } from '@angular/router';
 
 export class NavComponent {
 
+  isConnected !:boolean;
   constructor(private route: ActivatedRoute) { }
   categorie !: string;
   @ViewChild("aerarring") aerarring !: ElementRef;
@@ -18,6 +19,11 @@ export class NavComponent {
 
   ngOnInit() {
     this.categorie = this.route.snapshot.paramMap.get('categorie')!;
+    if(localStorage.getItem('isLoggedIn') as string== "true"){
+      this.isConnected = true;
+    }else{
+      this.isConnected = false;
+    }
   }
 
   ngAfterViewInit() {
@@ -26,5 +32,7 @@ export class NavComponent {
     if (this.categorie == "Necklaces") this.anecklaces.nativeElement.style.textDecoration = "underline";
     if (this.categorie == "Bracelets") this.abracelets.nativeElement.style.textDecoration = "underline";
   }
+
+
 
 }
